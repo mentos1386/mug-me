@@ -11,3 +11,6 @@ don't mug me please
  
  UK Police:
  https://data.police.uk/docs/method/crimes-at-location/
+
+Speech Recognition:
+https://www.talater.com/annyang/
