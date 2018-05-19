@@ -32,23 +32,31 @@ body {
   flex: 0.5; }
 
 #travel .form-container .from-to-form {
+  display: flex;
   z-index: 1;
   position: absolute;
   top: 1%;
-  margin-bottom: 1em;
-  font-size: 11px; }
+  font-size: 0.9em;
+  padding: 0.8em 2em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
+
+#travel .form-container .from-to-form label {
+  margin-bottom: 0; }
 
 #travel .form-container .from-to-form .direction-seperator {
   margin: 0 1em;
-  font-size: 1em; }
+  font-size: 2em; }
 
 #travel .form-container .from-to-form input {
   font-size: 1em;
   display: block;
   border: none;
   border-bottom: 1px solid #757575;
-  background-color: transparent;
-  margin-bottom: 1em; }
+  background-color: transparent; }
 
 #travel .form-container .from-to-form input:focus {
   outline: none; }
