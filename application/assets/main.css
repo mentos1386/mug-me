@@ -48,4 +48,8 @@ body {
   -ms-filter: blur(5px);
   filter: blur(5px); }
 
+.element_hidden {
+  display: none;
+  visibility: hidden; }
+
 /* LABEL ======================================= */

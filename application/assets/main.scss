@@ -57,7 +57,11 @@ body {
 	  filter: blur(5px);
  }
 
-
+ // to hide element
+ .element_hidden {
+ 	display: none;
+    visibility: hidden;
+ }
 
 
 /* LABEL ======================================= */
