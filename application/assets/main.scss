@@ -13,6 +13,20 @@ body {
   	width: 100%;
 }
 
+/////
+// Google remover
+//
+.pac-container:after {
+	display: none;
+}
+.gm-style {
+	div:nth-child(3),
+	.gmnoprint {
+		display: none;
+	}
+}
+/////
+
 .overlay {
 	position: absolute;
 	top: 0;
