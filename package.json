@@ -1,0 +1,21 @@
+{
+  "name": "mug-me",
+  "version": "1.0.0",
+  "description": "don't mug me please",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node-sass --watch application/assets --output application/assets",
+    "compile:sass": "node-sass application/assets --output application/assets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mentos1386/mug-me.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mentos1386/mug-me/issues"
+  },
+  "homepage": "https://github.com/mentos1386/mug-me#readme"
+}
