@@ -3,8 +3,9 @@
 	// Google map
 	const mapElement = document.getElementById('map');
 	const map = new google.maps.Map(mapElement, {
-	  center: {lat: 37.7717378, lng: -122.4436925},
-	  zoom: 12
+	  disableDefaultUI: true,
+	  center: {lat: 37.7717378, lng: -122.4436925}, // hardcoded to sf
+	  zoom: 12,
 	});
 
 	////
@@ -47,8 +48,8 @@
 			const from_location = from_input.place.geometry.location;
 			const to_location = to_input.place.geometry.location;
 
-			console.log(`From lat:${from_location.lat()} lng:${from_location.lng()}`)
-			console.log(`From lat:${to_location.lat()} lng:${to_location.lng()}`)
+			console.log(`from_location lat:${from_location.lat()} lng:${from_location.lng()}`)
+			console.log(`to_location lat:${to_location.lat()} lng:${to_location.lng()}`)
 		}
 	});
 })();
