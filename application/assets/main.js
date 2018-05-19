@@ -1,7 +1,25 @@
+(async () => {
+	// Hardcoded intial location to SF
+	const position = {lat: 37.7717378, lng: -122.4436925};
 
-const mapElement = document.getElementById('map');
+	////
+	// Getting user location
+	// new Promise((resolve, reject) => {
+	// 	navigator.geolocation.getCurrentPosition(resolve, reject)
+	// }).then(pos => {
+	// 	console.log("Found user location", pos);
+	// 	position = {
+	// 		lat: pos.coords.latitude,
+	// 		lng: pos.coords.longitude,
+	// 	}
+	// })
 
-const map = new google.maps.Map(mapElement, {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
-});
+	////
+	// Google map
+	const mapElement = document.getElementById('map');
+
+	const map = new google.maps.Map(mapElement, {
+	  center: position,
+	  zoom: 12
+	});
+})();
