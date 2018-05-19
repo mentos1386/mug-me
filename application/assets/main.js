@@ -44,7 +44,7 @@
 	const from_input_travel = new FormAutoComplete('from-direction-travel')
 
 
-	$('#test-button').click(function () {
+	$('#find-path-button').click(function () {
 		if (from_input.place && to_input.place) {
 			document.getElementById("map").classList.remove("blured");
 			document.getElementById("welcome").classList.add("element_hidden");
