@@ -17,20 +17,40 @@ body {
   right: 0;
   left: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%; }
 
 #welcome {
   height: 100%;
-  z-index: 1; }
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
 
-#welcome #from-to-form #direction-seperator {
+#welcome h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 300;
+  font-size: 5em; }
+
+#welcome h1 small {
+  font-size: 50%;
+  font-weight: 300; }
+
+#welcome .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.5; }
+
+#welcome .form-container .from-to-form {
+  margin-bottom: 1em; }
+
+#welcome .form-container .from-to-form .direction-seperator {
   margin: 0 1em;
   font-size: 2.5em; }
 
-#welcome #from-to-form input {
+#welcome .form-container .from-to-form input {
   font-size: 1em;
   display: block;
   border: none;
@@ -38,7 +58,7 @@ body {
   background-color: transparent;
   margin-bottom: 1em; }
 
-#welcome #from-to-form input:focus {
+#welcome .form-container .from-to-form input:focus {
   outline: none; }
 
 .blured {
