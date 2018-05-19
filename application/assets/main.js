@@ -44,6 +44,8 @@
 		if (from_input.place && to_input.place) {
 			document.getElementById("map").classList.remove("blured");
 			document.getElementById("welcome").classList.add("element_hidden");
+			document.getElementById("travel").classList.remove("element_hidden");
+			
 
 			const from_location = from_input.place.geometry.location;
 			const to_location = to_input.place.geometry.location;

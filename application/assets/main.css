@@ -20,6 +20,39 @@ body {
   display: flex;
   width: 100%; }
 
+#travel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+
+#travel .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.5; }
+
+#travel .form-container .from-to-form {
+  z-index: 1;
+  position: absolute;
+  top: 1%;
+  margin-bottom: 1em;
+  font-size: 11px; }
+
+#travel .form-container .from-to-form .direction-seperator {
+  margin: 0 1em;
+  font-size: 1em; }
+
+#travel .form-container .from-to-form input {
+  font-size: 1em;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: transparent;
+  margin-bottom: 1em; }
+
+#travel .form-container .from-to-form input:focus {
+  outline: none; }
+
 #welcome {
   height: 100%;
   z-index: 1;
