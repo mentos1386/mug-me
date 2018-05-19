@@ -20,8 +20,8 @@ body {
 	display: none;
 }
 .gm-style {
-	div:nth-child(3),
-	.gmnoprint {
+	> div:nth-child(3),
+	> .gmnoprint {
 		display: none;
 	}
 }

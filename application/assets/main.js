@@ -10,7 +10,7 @@
 
 	////
 	// Search Autocomplete
-	class FormAutoComplete {
+	class FormAutoComplete extends EventEmitter {
 		constructor(elementId) {
 			this.element = document.getElementById(elementId);
 			this.autocomplete = new google.maps.places.Autocomplete(this.element);
@@ -32,6 +32,7 @@
 				}
 
 				this.place = place;
+				this.emit('change', this.place);
 		    });
 		}
 	}
@@ -42,6 +43,10 @@
 	// travel
 	const to_input_travel = new FormAutoComplete('to-direction-travel')
 	const from_input_travel = new FormAutoComplete('from-direction-travel')
+
+	from_input.on('change', place => {
+		console.log(place);
+	})
 
 
 	$('#test-button').click(function () {

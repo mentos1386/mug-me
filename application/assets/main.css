@@ -14,8 +14,8 @@ body {
 .pac-container:after {
   display: none; }
 
-.gm-style div:nth-child(3),
-.gm-style .gmnoprint {
+.gm-style > div:nth-child(3),
+.gm-style > .gmnoprint {
   display: none; }
 
 .overlay {
