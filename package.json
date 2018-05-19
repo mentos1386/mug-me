@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/mentos1386/mug-me/issues"
   },
-  "homepage": "https://github.com/mentos1386/mug-me#readme"
+  "homepage": "https://github.com/mentos1386/mug-me#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
 }
