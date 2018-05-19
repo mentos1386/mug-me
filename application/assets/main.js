@@ -9,54 +9,46 @@
 
 	////
 	// Search Autocomplete
-	const to_input = document.getElementById('to-direction');
-	const from_input = document.getElementById('from-direction');
-	const autocomplete_to = new google.maps.places.Autocomplete(to_input);
-	const autocomplete_from = new google.maps.places.Autocomplete(from_input);
+	class FormAutoComplete {
+		constructor(elementId) {
+			this.element = document.getElementById(elementId);
+			this.autocomplete = new google.maps.places.Autocomplete(this.element);
 
-	let to_place = null;
-	let from_place = null;
+		    this.autocomplete.addListener('place_changed', () => {
+				const place = this.autocomplete.getPlace();
 
-    autocomplete_to.addListener('place_changed', function() {
-		var place = autocomplete_to.getPlace();
-		if (!place.geometry) {
-			console.log("set wrong input on form!!");
-			return;
+				if (!place.geometry) {
+					console.log("set wrong input on form!!");
+					return;
+				}
+
+				// If the place has a geometry, then present it on a map.
+				if (place.geometry.viewport) {
+					map.fitBounds(place.geometry.viewport);
+				} else {
+					map.setCenter(place.geometry.location);
+					map.setZoom(17);  // Why 17? Because it looks good.
+				}
+
+				this.place = place;
+		    });
 		}
+	}
 
-		// If the place has a geometry, then present it on a map.
-		if (place.geometry.viewport) {
-			map.fitBounds(place.geometry.viewport);
-		} else {
-			map.setCenter(place.geometry.location);
-			map.setZoom(17);  // Why 17? Because it looks good.
-		}
+	const to_input = new FormAutoComplete('to-direction')
+	const from_input = new FormAutoComplete('from-direction')
 
-		to_place = place;
-    });
-    autocomplete_from.addListener('place_changed', function() {
-		var place = autocomplete_from.getPlace();
-		if (!place.geometry) {
-			console.log("set wrong input on form!!");
-			return;
-		}
-
-		// If the place has a geometry, then present it on a map.
-		if (place.geometry.viewport) {
-			map.fitBounds(place.geometry.viewport);
-		} else {
-			map.setCenter(place.geometry.location);
-			map.setZoom(17);  // Why 17? Because it looks good.
-		}
-
-		from_place = place;
-    });
 
 	$('#test-button').click(function () {
-		if (from_place && to_place) {
+		if (from_input.place && to_input.place) {
 			document.getElementById("map").classList.remove("blured");
 			document.getElementById("welcome").classList.add("element_hidden");
-			console.log("Should show path", from_place, to_place)
+
+			const from_location = from_input.place.geometry.location;
+			const to_location = to_input.place.geometry.location;
+
+			console.log(`From lat:${from_location.lat()} lng:${from_location.lng()}`)
+			console.log(`From lat:${to_location.lat()} lng:${to_location.lng()}`)
 		}
 	});
 })();
