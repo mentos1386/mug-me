@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node-sass --watch application/assets --output application/assets",
-    "compile:sass": "node-sass application/assets --output application/assets"
+    "build:sass": "node-sass application/assets --output application/assets",
+    "build": "npm run build:sass"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+    web:
+        command: npm run watch
+        build: .
+        volumes:
+          - .:/app/src
+          - /app/src/node_modules
+
+    app:
+        command: python
+        build: .
+        ports:
+          - "3000:3000"
+        volumes:
+          - .:/app/src
+        links:
+          - web
