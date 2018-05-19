@@ -18,4 +18,41 @@ body {
 	bottom: 0;
 	right: 0;
 	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+
+ //    display: grid;
+ //    /*grid-template-rows: auto;*/
+ //    /*grid-template-areas:*/
+ //        /*"path path path path ";*/
+	// /*}*/
+	// grid-template-columns: repeat(2, 1fr);
+	// grid-gap: 10px;
+	// grid-rows: 1fr
+	// grid-template-areas:
+	// 	". .",
+	// 	"path path",
+	// 	". . ";
 }
+
+#overlay > * {
+	z-index: 1;
+ }
+
+/* to blur element */
+ .blured {
+ 	  -webkit-filter: blur(5px);
+	  -moz-filter: blur(5px);
+	  -o-filter: blur(5px);
+	  -ms-filter: blur(5px);
+	  filter: blur(5px);
+ }
+
+ #get-input {
+ 	grid-area: path;
+ 	justify-self: center;
+ }

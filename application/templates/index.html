@@ -16,10 +16,16 @@
 	<link rel="stylesheet" type="text/css" href="../assets/main.css">
 </head>
 <body>
-	<div id = "overlay">
-		<button type="button" class="btn btn-primary" id="test-button">
-		  Launch demo modal
-		</button>
+	<div id="overlay">
+		<div id="get-input">
+          <label for = "from-direction">
+            <input id = "from-direction" type="text" name="from-direction" placeholder="from">
+          </label>
+          <label for = "to-direction">
+            <input id = "to-direction" type="text" name="to-direction" autofocus placeholder="to">
+          </label>
+        </div>
+         <button type="button" class="btn btn-primary" id="test-button">Show me path</button>
 	</div>
 	<!-- map is blurred at the start -->
 	<div id = "map" class = "blured"></div>
