@@ -55,6 +55,7 @@
 	$('#test-button').click(function () {
 		if (from_place && to_place) {
 			document.getElementById("map").classList.remove("blured");
+			document.getElementById("overlay").classList.add("element_hidden");
 			console.log("Should show path", from_place, to_place)
 		}
 	});
