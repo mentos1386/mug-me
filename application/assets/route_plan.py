@@ -1,8 +1,8 @@
 from collections import namedtuple
 from geopy import point .distance
 
-
-API_KEY = 'AIzaSyAi48pPuajuZgZTb9NvqZofvMZt3eepmlg'
+# working key
+API_KEY = 'AIzaSyCIL4iv4nUrjD8ZhnzayE3G_4aOK0xNas8'
 MAX_STEPS = 6  #MAYBE 5? NOT SURE ;)
 
 FROM = (LONG, LAT)
