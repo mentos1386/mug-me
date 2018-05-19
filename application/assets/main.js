@@ -39,11 +39,17 @@
 	const to_input = new FormAutoComplete('to-direction')
 	const from_input = new FormAutoComplete('from-direction')
 
+	// travel
+	const to_input_travel = new FormAutoComplete('to-direction-travel')
+	const from_input_travel = new FormAutoComplete('from-direction-travel')
+
 
 	$('#test-button').click(function () {
 		if (from_input.place && to_input.place) {
 			document.getElementById("map").classList.remove("blured");
 			document.getElementById("welcome").classList.add("element_hidden");
+			document.getElementById("travel").classList.remove("element_hidden");
+
 
 			const from_location = from_input.place.geometry.location;
 			const to_location = to_input.place.geometry.location;

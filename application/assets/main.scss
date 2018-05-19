@@ -13,6 +13,20 @@ body {
   	width: 100%;
 }
 
+/////
+// Google remover
+//
+.pac-container:after {
+	display: none;
+}
+.gm-style {
+	div:nth-child(3),
+	.gmnoprint {
+		display: none;
+	}
+}
+/////
+
 .overlay {
 	position: absolute;
 	top: 0;
@@ -21,6 +35,55 @@ body {
 	left: 0;
 	display: flex;
 	width: 100%;
+}
+
+#travel {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+
+	.form-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 0.5;
+	
+		.from-to-form {
+			display: flex;
+			z-index: 1;
+			position: absolute;
+			top: 1%;
+			font-size: 0.9em;
+			padding: 0.8em 2em;
+			background-color: white;
+			border-radius: 5px;
+			box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+    		-moz-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+    		-webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+
+			label{
+				margin-bottom: 0;
+			}
+
+
+			.direction-seperator {
+				margin: 0 1em;
+				font-size: 2em;
+			}
+
+			input {
+				font-size: 1em;
+			    display: block;
+			    border: none;
+			    border-bottom: 1px solid #757575;
+			    background-color: transparent;
+
+				&:focus {
+					outline:none;
+				}
+			}
+		}
+	}
 }
 
 #welcome {
