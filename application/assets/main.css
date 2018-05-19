@@ -11,6 +11,13 @@ body {
   height: 100%;
   width: 100%; }
 
+.pac-container:after {
+  display: none; }
+
+.gm-style div:nth-child(3),
+.gm-style .gmnoprint {
+  display: none; }
+
 .overlay {
   position: absolute;
   top: 0;
