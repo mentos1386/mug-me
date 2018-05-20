@@ -41,7 +41,7 @@
 
 	// travel
 	const to_input_travel = new FormAutoComplete('to-direction-travel')
-	const from_input_travel = new FormAutoComplete('from-direction-travel')
+	const from_input_travel = new FormAutoComplete('from`-direction-travel')
 
 
 	$('#test-button').click(function () {
