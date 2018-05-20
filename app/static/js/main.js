@@ -57,6 +57,17 @@
 
                     $('#steps').empty();
 
+                    const markers = steps.map(step => {
+                        return new google.maps.Marker({
+                            label: {
+                                color: 'white',
+                                text: 'P'
+                            },
+                            map,
+                            position: step.start_point,
+                            visible: false,
+                        })
+                    })
 
                     window.listOnClickEvent = (itemId) => {
                         // Clear all active/inactive classes from items
@@ -71,23 +82,17 @@
                             item.classList.add('disabled');   
                         }
 
+                        // Set clicked item active
                         const item = $(`#steps li:nth-child(${itemId})`)[0];
                         item.classList.add('active');
 
-                        console.log(steps[i]);
+                        // Hide all markers
+                        markers.forEach(marker => marker.setVisible(false));
+                        // Show current one
+                        markers[itemId-1].setVisible(true);
 
-                        const marker = new google.maps.Marker({
-                            label: {
-                                color: 'white',
-                                text: 'P'
-                            },
-                            icon: {
-                                fillColor: '#007bff',
-                                path: google.maps.SymbolPath.FORWARD_OPEN_ARROW
-                            },
-                            map,
-                            position: steps[i].start_point,
-                        })
+                        map.setZoom(18)
+                        map.panTo(steps[itemId-1].start_point)
                     }
 
                     for (var i =0; i < steps.length; i++){
