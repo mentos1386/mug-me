@@ -105,6 +105,7 @@
                                 class="list-group-item ${i == 0 ? 'active' : ''}"
                                 onclick="listOnClickEvent(${i+1})">
                                 ${steps[i].instructions}
+                                <span class="badge badge-light">${steps[i].duration.text}</span>
                             </li>
                         `)
                     }
