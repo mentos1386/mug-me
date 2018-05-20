@@ -27,7 +27,7 @@ body {
 }
 /////
 
-.overlay {
+#overlay {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -37,10 +37,15 @@ body {
 	width: 100%;
 }
 
-#travel {
+.travel {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+
+	.hide-travel {
+		display: none;
+		visibility: hidden;
+	}
 
 	.form-container {
 		display: flex;
@@ -61,7 +66,7 @@ body {
     		-moz-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
     		-webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
 
-			label{
+			label {
 				margin-bottom: 0;
 			}
 
@@ -86,7 +91,7 @@ body {
 	}
 }
 
-#welcome {
+.welcome {
 	height: 100%;
 	z-index: 1;
 	display: flex;
@@ -136,7 +141,6 @@ body {
 	}
 }
 
-
  .blured {
  	  -webkit-filter: blur(5px);
 	  -moz-filter: blur(5px);
@@ -145,7 +149,6 @@ body {
 	  filter: blur(5px);
  }
 
- // to hide element
  .element_hidden {
  	display: none;
     visibility: hidden;

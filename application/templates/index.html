@@ -17,8 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="../assets/main.css">
 </head>
 <body>
-	<div id="welcome" class="overlay">
-		<h1>
+	<div id="overlay" class="welcome">
+		<h1 class="hide-travel">
 			MugMe
 			<small class="text-muted">don't mug me please</small>
 		</h1>
@@ -32,22 +32,10 @@
 	            <input id="to-direction" type="text" name="to-direction" autofocus placeholder="to">
 	          </label>
 	        </div>
-			<button type="button" class="btn btn-primary" id="test-button">Thanks!</button>
+			<button type="button" class="btn btn-primary hide-travel" id="find-path-button">Thanks!</button>
 		</div>
 	</div>
-	<div id="travel" class="overlay element_hidden">
-		<div class="form-container">
-			<div class="from-to-form">
-	          <label for="from-direction">
-	            <input id="from-direction-travel" type="text" name="from-direction" placeholder="from">
-	          </label>
-	          <i class="fas fa-walking direction-seperator"></i>
-	          <label for="to-direction">
-	            <input id="to-direction-travel" type="text" name="to-direction" autofocus placeholder="to">
-	          </label>
-	        </div>
-		</div>
-	</div>
+
 
 	<!-- map is blurred at the start -->
 	<div id = "map" class = "blured"></div>
