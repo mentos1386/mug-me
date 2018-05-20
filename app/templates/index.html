@@ -24,6 +24,26 @@
 	<script type="text/javascript" src="/static/js/main.js" async defer></script>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
+    if (annyang) {
+        function showFlickr(tag) {
+        str = tag.substring(5);
+        locationOne = str.substring(0,str.indexOf("to")-1);
+        locationTwo = str.substring(str.indexOf("to")+3);
+        alert("Location one: " + locationOne + " Location Two: " + locationTwo);
+      }
+      // Let's define a command.
+      var commands = {
+        'I would like to go *tag': showFlickr
+      };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening.
+      annyang.start();
+    }
+    </script>
 	<div id="overlay" class="welcome">
 		<h1 class="hide-travel">
 			MugMe

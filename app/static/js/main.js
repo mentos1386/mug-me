@@ -84,81 +84,77 @@
 				}
 
 				this.place = place;
+
+                if (this.shouldFindPath) {
+                    findPath()
+                }
 		    });
 		}
+
+        startFindingPath() {
+            this.shouldFindPath = true;
+        }
 	}
 
-	const to_input = new FormAutoComplete('to-direction')
-	const from_input = new FormAutoComplete('from-direction')
+    const to_input = new FormAutoComplete('to-direction')
+    const from_input = new FormAutoComplete('from-direction')
+
+    /////
+    // Find path from origin to destination
+    const findPath = () => {
+        // if from or to isn't provided, return
+        if (!to_input.place || !from_input.place) return;
+
+        const params = {
+            origin: from_input.place.place_id,
+            destination: to_input.place.place_id,
+        }
+
+        $.getJSON(`/_search1`, params, (data) => {
+            jsonObj = data;
+            var waypoints =[];
+
+            service = new google.maps.places.PlacesService(map);
+
+            jsonObj['geocoded_waypoints'].forEach((waypoint) => {
+
+                service.getDetails({ placeId: waypoint.place_id }, (place, status) => {
+
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        waypoints.push({
+                            location: {
+                                lat: place.geometry.location.lat(),
+                                lng: place.geometry.location.lng()
+                            },
+                            stopover: false
+                        });
+
+                        route(
+                            params.origin,
+                            params.destination,
+                            TRAVEL_MODE,
+                            directionsService,
+                            directionsDisplay,
+                            waypoints);
+                    }
+                });
+            })
+        })
+    }
 
 
-	$('#search-button').click(function () {
+	$('#search-button').click(() => {
 		if (from_input.place && to_input.place) {
 			document.getElementById("map").classList.remove("blured");
 			document.getElementById("overlay").classList.add("travel");
 			document.getElementById("overlay").classList.remove("welcome");
 
+            from_input.startFindingPath();
+            to_input.startFindingPath();
 
-			const from_location = from_input.place.geometry.location;
-			const to_location = to_input.place.geometry.location;
-
-			console.log(`from_location lat:${from_location.lat()} lng:${from_location.lng()}`)
-			console.log(`to_location lat:${to_location.lat()} lng:${to_location.lng()}`)
-
-	        var params = {
-	                origin: from_input.place.place_id,
-	                destination: to_input.place.place_id,
-	            }
-
-	        $.getJSON(`/_search1`, params, function (data) {
-	            jsonObj = data;
-	            var waypoints =[];
-
-	            service = new google.maps.places.PlacesService(map);
-
-                for (var i = 0; i < jsonObj['geocoded_waypoints'].length; i++) {
-                    console.log(jsonObj['geocoded_waypoints'][i]['place_id']);
-                    service.getDetails({
-                        placeId: jsonObj['geocoded_waypoints'][i]['place_id']
-                    }, function(place, status) {
-                        console.log(status);
-                        if (status == google.maps.places.PlacesServiceStatus.OK) {
-                            waypoints.push({
-                                location: {
-                                    lat: place.geometry.location.lat(),
-                                    lng: place.geometry.location.lng()
-                                },
-                                stopover: false
-                            });
-
-                            route(params.origin, params.destination, TRAVEL_MODE,
-                                  directionsService, directionsDisplay, waypoints);
-                        }
-                    });
-
-                    if (i == jsonObj['geocoded_waypoints'].length - 1) {
-                        console.log("Done");
-                    }
-                }
-        	})
+            findPath();
 		}
 	});
-
-	// coordinates
-	var flightPlanCoordinates = [
-          {lat: 37.772, lng: -122.214},
-          {lat: 21.291, lng: -157.821},
-          {lat: -18.142, lng: 178.431},
-          {lat: -27.467, lng: 153.027}
-        ];
-
-    // var flightPath = new google.maps.Polyline({
-    //       path: flightPlanCoordinates,
-    //       geodesic: true,
-    //       strokeColor: '#FF0000',
-    //       strokeOpacity: 1.0,
-    //       strokeWeight: 2
-    //     });
 
    	let prevLatLang = "";
     flightPlanCoordinates.forEach((value, key) => {
