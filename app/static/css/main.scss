@@ -34,17 +34,33 @@ body {
 	right: 0;
 	left: 0;
 	display: flex;
-	width: 100%;
 }
 
 .travel {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: space-between;
+	margin: 1%;
 
 	.hide-travel {
 		display: none;
 		visibility: hidden;
+	}
+
+	#steps {
+		display: flex;
+		flex-directoin: column;
+		z-index: 1;
+		max-width: 40%;
+		max-height: 40%;
+		overflow: scroll;
+		opacity: 0.9;
+		transition: opacity 0.5s ease;
+		border-radius: 5px;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 
 	.form-container {
@@ -57,17 +73,18 @@ body {
 			display: flex;
 			z-index: 1;
 			position: absolute;
-			top: 1%;
 			font-size: 0.9em;
 			padding: 0.8em 2em;
 			background-color: white;
 			border-radius: 5px;
+			width: 70%;
 			box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
     		-moz-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
     		-webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
 
 			label {
 				margin-bottom: 0;
+				flex: 1;
 			}
 
 
@@ -82,6 +99,7 @@ body {
 			    border: none;
 			    border-bottom: 1px solid #757575;
 			    background-color: transparent;
+				width: 100%;
 
 				&:focus {
 					outline:none;
@@ -97,6 +115,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+
+	.hide-welcome {
+		display: none;
+		visibility: hidden;
+	}
 
 	h1 {
 		display: flex;
@@ -118,11 +141,17 @@ body {
 		flex: 0.5;
 	
 		.from-to-form {
+			display: flex;
 			margin-bottom: 1em;
+			width: 70%;
 
 			.direction-seperator {
 				margin: 0 1em;
 				font-size: 2.5em;
+			}
+
+			label {
+				flex: 1;
 			}
 
 			input {
@@ -132,6 +161,7 @@ body {
 				border-bottom:1px solid #757575;
 				background-color: transparent;
 				margin-bottom: 1em;
+				width: 100%;
 
 				&:focus {
 					outline:none;

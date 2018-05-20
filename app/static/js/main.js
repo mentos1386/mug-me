@@ -53,6 +53,53 @@
                 console.log(waypoints);
                 if (status === google.maps.DirectionsStatus.OK) {
                     directionsDisplay.setDirections(response);
+                    var steps = response.routes[0].legs[0].steps;
+
+                    $('#steps').empty();
+
+
+                    window.listOnClickEvent = (itemId) => {
+                        // Clear all active/inactive classes from items
+                        for (var i = 1; i <= steps.length; i++) {
+                            const item = $(`#steps li:nth-child(${i})`)[0];
+                            item.classList.remove('active');
+                            item.classList.remove('disabled');
+                        }
+                        // Set previouse items to inactive
+                        for (var i = 1; i < itemId; i++) {
+                            const item = $(`#steps li:nth-child(${i})`)[0];
+                            item.classList.add('disabled');   
+                        }
+
+                        const item = $(`#steps li:nth-child(${itemId})`)[0];
+                        item.classList.add('active');
+
+                        console.log(steps[i]);
+
+                        const marker = new google.maps.Marker({
+                            label: {
+                                color: 'white',
+                                text: 'P'
+                            },
+                            icon: {
+                                fillColor: '#007bff',
+                                path: google.maps.SymbolPath.FORWARD_OPEN_ARROW
+                            },
+                            map,
+                            position: steps[i].start_point,
+                        })
+                    }
+
+                    for (var i =0; i < steps.length; i++){
+                        $('#steps').append(`
+                            <li
+                                class="list-group-item ${i == 0 ? 'active' : ''}"
+                                onclick="listOnClickEvent(${i+1})">
+                                ${steps[i].instructions}
+                            </li>
+                        `)
+                    }
+                    console.log(steps);
                 } else {
                     window.alert('Directions request failed due to ' + status);
                 }

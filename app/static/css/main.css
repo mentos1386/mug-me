@@ -24,17 +24,31 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  display: flex;
-  width: 100%; }
+  display: flex; }
 
 .travel {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; }
+  justify-content: space-between;
+  margin: 1%; }
 
 .travel .hide-travel {
   display: none;
   visibility: hidden; }
+
+.travel #steps {
+  display: flex;
+  flex-directoin: column;
+  z-index: 1;
+  max-width: 40%;
+  max-height: 40%;
+  overflow: scroll;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+  border-radius: 5px; }
+
+.travel #steps:hover {
+  opacity: 1; }
 
 .travel .form-container {
   display: flex;
@@ -46,17 +60,18 @@ body {
   display: flex;
   z-index: 1;
   position: absolute;
-  top: 1%;
   font-size: 0.9em;
   padding: 0.8em 2em;
   background-color: white;
   border-radius: 5px;
+  width: 70%;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
 
 .travel .form-container .from-to-form label {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  flex: 1; }
 
 .travel .form-container .from-to-form .direction-seperator {
   margin: 0 1em;
@@ -67,7 +82,8 @@ body {
   display: block;
   border: none;
   border-bottom: 1px solid #757575;
-  background-color: transparent; }
+  background-color: transparent;
+  width: 100%; }
 
 .travel .form-container .from-to-form input:focus {
   outline: none; }
@@ -78,6 +94,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; }
+
+.welcome .hide-welcome {
+  display: none;
+  visibility: hidden; }
 
 .welcome h1 {
   display: flex;
@@ -97,11 +117,16 @@ body {
   flex: 0.5; }
 
 .welcome .form-container .from-to-form {
-  margin-bottom: 1em; }
+  display: flex;
+  margin-bottom: 1em;
+  width: 70%; }
 
 .welcome .form-container .from-to-form .direction-seperator {
   margin: 0 1em;
   font-size: 2.5em; }
+
+.welcome .form-container .from-to-form label {
+  flex: 1; }
 
 .welcome .form-container .from-to-form input {
   font-size: 1em;
@@ -109,7 +134,8 @@ body {
   border: none;
   border-bottom: 1px solid #757575;
   background-color: transparent;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  width: 100%; }
 
 .welcome .form-container .from-to-form input:focus {
   outline: none; }
