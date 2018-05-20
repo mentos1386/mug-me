@@ -18,7 +18,7 @@ body {
 .gm-style > .gmnoprint {
   display: none; }
 
-.overlay {
+#overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -27,16 +27,19 @@ body {
   display: flex;
   width: 100%; }
 
-#travel {
+.travel {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; }
-  #travel .form-container {
+  .travel .hide-travel {
+    display: none;
+    visibility: hidden; }
+  .travel .form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 0.5; }
-    #travel .form-container .from-to-form {
+    .travel .form-container .from-to-form {
       display: flex;
       z-index: 1;
       position: absolute;
@@ -48,53 +51,53 @@ body {
       box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
-      #travel .form-container .from-to-form label {
+      .travel .form-container .from-to-form label {
         margin-bottom: 0; }
-      #travel .form-container .from-to-form .direction-seperator {
+      .travel .form-container .from-to-form .direction-seperator {
         margin: 0 1em;
         font-size: 2em; }
-      #travel .form-container .from-to-form input {
+      .travel .form-container .from-to-form input {
         font-size: 1em;
         display: block;
         border: none;
         border-bottom: 1px solid #757575;
         background-color: transparent; }
-        #travel .form-container .from-to-form input:focus {
+        .travel .form-container .from-to-form input:focus {
           outline: none; }
 
-#welcome {
+.welcome {
   height: 100%;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; }
-  #welcome h1 {
+  .welcome h1 {
     display: flex;
     flex-direction: column;
     text-align: center;
     font-weight: 300;
     font-size: 5em; }
-    #welcome h1 small {
+    .welcome h1 small {
       font-size: 50%;
       font-weight: 300; }
-  #welcome .form-container {
+  .welcome .form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 0.5; }
-    #welcome .form-container .from-to-form {
+    .welcome .form-container .from-to-form {
       margin-bottom: 1em; }
-      #welcome .form-container .from-to-form .direction-seperator {
+      .welcome .form-container .from-to-form .direction-seperator {
         margin: 0 1em;
         font-size: 2.5em; }
-      #welcome .form-container .from-to-form input {
+      .welcome .form-container .from-to-form input {
         font-size: 1em;
         display: block;
         border: none;
         border-bottom: 1px solid #757575;
         background-color: transparent;
         margin-bottom: 1em; }
-        #welcome .form-container .from-to-form input:focus {
+        .welcome .form-container .from-to-form input:focus {
           outline: none; }
 
 .blured {
