@@ -9,7 +9,7 @@ def index():
     return render_template('index.html', title="MugMe")
 
 
-@app.route('/_search1', methoods=['GET'])
+@app.route('/_search1')
 def search1():
     origin = request.args.get('origin', "", type=str)
     destination = request.args.get('destination', "", type=str)
@@ -27,7 +27,7 @@ def search1():
     return jsonify(path)
 
 
-@app.route('/_search2', methoods=['GET'])
+@app.route('/_search2')
 def search2():
     origin = request.args.get('origin', "", type=str)
     destination = request.args.get('destination', "", type=str)
