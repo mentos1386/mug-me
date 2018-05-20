@@ -3,7 +3,7 @@ from geopy import Point, distance
 
 # working key
 API_KEY = 'AIzaSyCIL4iv4nUrjD8ZhnzayE3G_4aOK0xNas8'
-MAX_STEPS = 6  # MAYBE 5? NOT SURE ;)
+MAX_STEPS = 5 # MAYBE 5? NOT SURE ;)
 
 FROM = (40.728833, -74.000852)
 TO = (40.735012, -73.979333)
