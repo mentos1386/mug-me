@@ -115,6 +115,15 @@ body {
   font-weight: 300;
   font-size: 5em; }
 
+.welcome h1 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.welcome h1 .title img {
+  height: 2em;
+  margin: -0.5em; }
+
 .welcome h1 small {
   font-size: 50%;
   font-weight: 300; }

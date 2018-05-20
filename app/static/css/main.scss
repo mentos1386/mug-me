@@ -141,6 +141,17 @@ body {
 		font-weight: 300;
 		font-size: 5em;
 
+		.title {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				height: 2em;
+				margin: -0.5em;
+			}
+		}
+
 		small {
 			font-size: 50%;
 			font-weight: 300;
