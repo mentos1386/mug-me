@@ -28,8 +28,10 @@
     <script>
     if (annyang) {
         function showFlickr(tag) {
-        console.log(tag);
-        alert(tag);
+        str = tag.substring(5);
+        locationOne = str.substring(0,str.indexOf("to")-1);
+        locationTwo = str.substring(str.indexOf("to")+3);
+        alert("Location one: " + locationOne + " Location Two: " + locationTwo);
       }
       // Let's define a command.
       var commands = {
