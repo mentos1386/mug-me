@@ -20,8 +20,8 @@ WAYPOINTS = [((40.72223320000001, -73.9874291), 4),
 
 class waypoint(namedtuple('waypoint', 'pat area')):
 
-    def closet(self, graph):
-        valid_nodes = self.closer_nodes(graph)
+    def nearest(self, graph):
+        valid_nodes = self.near_nodes(graph)
         optimal_distance = None
         optimal = None
 
@@ -34,14 +34,14 @@ class waypoint(namedtuple('waypoint', 'pat area')):
         return optimal
 
     def near_nodes(self, graph):
-        lats = sorted([self.area[0].latitdue, self.area[1].latitdue])
+        lats = sorted([self.area[0].latitude, self.area[1].latitude])
         longs = sorted([self.area[0].longitude, self.area[1].longitude])
 
         def inside(pot):
             return ((lats[0] - 0.1 <= pot.latitude <= lats[1] + 0.01) and (
                         longs[0] - 0.1 <= pot.longitude <= longs[1] + 0.01))
 
-        nodes = [node for node in graph if inside(node.pot)]
+        nodes = [node for node in graph if inside(node.pat)]
 
         return nodes
 
@@ -56,8 +56,8 @@ def optimal_path(nodes, origin, dest):
 
     to_dest = waypoint(dest, (origin, dest))
 
-    waypoint.append(to_dest)
-    begin, remaining = waypoint[0], waypoint[1:]
+    waypoint_collec.append(to_dest)
+    begin, remaining = waypoint_collec[0], waypoint_collec[1:]
     path = []
 
     # Check for the rang to see if its the nearest to the start point

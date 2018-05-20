@@ -17,6 +17,8 @@ def search1():
     destination_geog = place_details(destination)
 
     shops = find_shops(origin, destination)
+    if shops is None:
+        shops = []
     waypoint = route_plan.optimal_path(shops, origin_geog, destination_geog)
 
     print 'Waypoints: ' + str(waypoint)

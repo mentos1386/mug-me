@@ -1,5 +1,6 @@
 (async () => {
     const API_KEY = "AIzaSyCIL4iv4nUrjD8ZhnzayE3G_4aOK0xNas8";
+    const TRAVEL_MODE = google.maps.TravelMode.WALKING;
 
 	////
 	// Google map
@@ -34,16 +35,16 @@
 
         if (waypoints) {
             request = {
-                origin: {'place_Id': origin_place_id},
-                destination: {'place_Id': destination_place_id},
+                origin: {'placeId': origin_place_id},
+                destination: {'placeId': destination_place_id},
                 waypoints: waypoints,
                 optimizeWaypoints: true,
                 travelMode: travel_mode
             }
         } else {
             request = {
-                origin: {'place_Id': origin_place_id},
-                destination: {'place_Id': destination_place_id},
+                origin: {'placeId': origin_place_id},
+                destination: {'placeId': destination_place_id},
                 travelMode: travel_mode
             }
         }
@@ -104,15 +105,12 @@
 			console.log(`from_location lat:${from_location.lat()} lng:${from_location.lng()}`)
 			console.log(`to_location lat:${to_location.lat()} lng:${to_location.lng()}`)
 
-	        var url = "https://maps.googleapis.com/maps/api/directions/json?origin=place_id:" + from_input.place_id
-	                    + "&destination=place_id:" + to_input.place_id + "&key=" + API_KEY;
-	        var url2 = "https://maps.googleapis.com/maps/api/directions/json";
 	        var params = {
-	                origin: from_input.place_id,
-	                destination: to_input.place_id,
+	                origin: from_input.place.place_id,
+	                destination: to_input.place.place_id,
 	            }
 
-	        $.getJSON(url2 + '_search1', params, function (data) {
+	        $.getJSON(`/_search1`, params, function (data) {
 	            jsonObj = data;
 	            var waypoints =[];
 
@@ -133,7 +131,7 @@
                                 stopover: false
                             });
 
-                            route(origin, destination, travel_mode,
+                            route(params.origin, params.destination, TRAVEL_MODE,
                                   directionsService, directionsDisplay, waypoints);
                         }
                     });

@@ -2,7 +2,7 @@ import urllib, json
 import os
 from clus_means import clus_means
 
-AUTH_KEY = os.getenv('AUTH_KEY')
+AUTH_KEY = 'AIzaSyCIL4iv4nUrjD8ZhnzayE3G_4aOK0xNas8'
 
 
 def find_shops(origin, destination, new_destination=None):
@@ -14,7 +14,11 @@ def find_shops(origin, destination, new_destination=None):
     # Calculating the distance using mid points
     distance = json_data["routes"][0]["legs"][0]["distance"]["value"]
 
-    decoded_poly = decode(json_data["routes"][0]["overview_polyline"]["point"])
+    decoded_poly = decode(json_data["routes"][0]["overview_polyline"]["points"])
+
+    if len(decoded_poly) == 0:
+        return []
+
     mid_points = decoded_poly[(int)(len(decoded_poly) / 2)]
     rad = distance * (3 / 2)
     lats = mid_points[1]
@@ -130,7 +134,8 @@ def place_details(place_id):
     resp = urllib.urlopen(my_url)
     json_raw = resp.read()
     json_data = json.loads(json_raw)
-    return json_data["result"]["geometry"]["location"]["lats"], json_data["result"]["geometry"]["location"]["longs"]
+
+    return json_data["result"]["geometry"]["location"]["lat"], json_data["result"]["geometry"]["location"]["lng"]
 
 
 # Fetch new waypoints provided the respective paths
