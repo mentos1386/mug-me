@@ -5,8 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node-sass --watch application/assets --output application/assets",
-    "build:sass": "node-sass application/assets --output application/assets",
+    "watch": "node-sass --watch app/static/css --output app/static/css",
+    "build:sass": "node-sass app/static/css --output app/static/css",
     "build": "npm run build:sass"
   },
   "repository": {
