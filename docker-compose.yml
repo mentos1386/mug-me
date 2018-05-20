@@ -10,10 +10,10 @@ services:
           - /app/src/node_modules
 
     app:
-        command: python
+        command: python run.py
         build: .
         ports:
-          - "3000:3000"
+          - "5000:5000"
         volumes:
           - .:/app/src
         links:
