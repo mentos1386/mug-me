@@ -172,6 +172,23 @@
 
             service = new google.maps.places.PlacesService(map);
 
+                        // HEATMAP
+            const heatmapData = data['crimes']
+            var points = [];
+            for(i=0; i<heatmapData.length; i++){
+              points.push(new google.maps.LatLng(heatmapData[i].location.latitude, heatmapData[i].location.longitude));
+              map.setCenter(points[i]);
+            }
+
+            console.log(points);
+
+            const heatmap = new google.maps.visualization.HeatmapLayer({
+              data: points,
+              map: map
+            });
+
+            heatmap.set('radius', 20);
+
             jsonObj['geocoded_waypoints'].forEach((waypoint) => {
 
                 service.getDetails({ placeId: waypoint.place_id }, (place, status) => {

@@ -159,26 +159,32 @@ def new_path(origin, destination, centroid_str):
     return json_data
 
 # Fetch crimes in the region
-def crime_place(lats, longs, rad):
-    LOCATION = str(lats) + ", " + str(longs)
-    RADIUS = rad
+def crime_place(northeast_cords, southwest_cords):
+    northeast = ','.join([
+        str(northeast_cords['lat']),
+        str(northeast_cords['lng']),
+        ])
+    northwest = ','.join([
+        str(northeast_cords['lat']),
+        str(southwest_cords['lng']),
+        ])
+    southwest = ','.join([
+        str(southwest_cords['lat']),
+        str(southwest_cords['lng'])
+        ])
+    southeast = ','.join([
+        str(southwest_cords['lat']),
+        str(northeast_cords['lng']),
+        ])
+
+    LOCATION = ':'.join([ northeast, northwest, southwest, southeast ])
     my_url = ('https://data.police.uk/api/crimes-street/all-crime?poly=%s&date=2017-01') % (LOCATION)
 
     # fetching results (json)
     resp = urllib.urlopen(my_url)
     json_raw = resp.read()
+
+    if json_raw == "":
+        return {}
     json_data = json.loads(json_raw)
     return json_data
-
-# Fetch events going on in the region
-def crime_place(lats, longs, rad):
-    LOCATION = str(lats) + ", " + str(longs)
-    RADIUS = rad
-    my_url = ('https://data.police.uk/api/crimes-street/all-crime?poly=%s&date=2017-01') % (LOCATION)
-
-    # fetching results (json)
-    resp = urllib.urlopen(my_url)
-    json_raw = resp.read()
-    json_data = json.loads(json_raw)
-    return json_data
-
