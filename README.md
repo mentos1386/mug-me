@@ -7,7 +7,7 @@ don't mug me please
 
  * Route should be colored depending on safty (orange = bad, green = good)
  * We should show google maps route for a comparison
- *Speech recognition
+ * Speech recognition
 
 
 ## LATER
