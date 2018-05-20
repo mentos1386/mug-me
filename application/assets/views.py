@@ -1,12 +1,14 @@
 from flask import render_template, make_response, request, current_app, jsonify
-import route_plan
+from app import app
+import route
+#import route_plan
 from location_request import *
 
-
+@app.route('/')
 def index():
     return render_template('index.html', title="MugMe")
 
-
+@app.route('/_search1', methoods= ['GET'])
 def search1():
     origin = request.args.get('origin', "", type=str)
     destination = request.args.get('destination', "", type=str)
@@ -23,7 +25,7 @@ def search1():
 
     return jsonify(path)
 
-
+@app.route('/_search2', methoods= ['GET'])
 def search2():
     origin = request.args.get('origin', "", type=str)
     destination = request.args.get('destination', "", type=str)
