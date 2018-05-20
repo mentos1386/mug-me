@@ -5,13 +5,17 @@ from geopy import Point, distance
 API_KEY = 'AIzaSyCIL4iv4nUrjD8ZhnzayE3G_4aOK0xNas8'
 MAX_STEPS = 6  # MAYBE 5? NOT SURE ;)
 
-FROM = (LATS, LkONGS)
-TO = (LATS, LONGS)
+FROM = (40.728833, -74.000852)
+TO = (40.735012, -73.979333)
 
-WAYPOINTS = [((LATS, LONGS), INDEX),
-             ((LATS, LONGS), INDEX),
-             ((LATS, LONGS), INDEX),
-             ((LATS, LONGS), INDEX)]
+WAYPOINTS = [((40.72223320000001, -73.9874291), 4),
+                    ((40.7324849, -74.00259299999999), 7),
+                    ((40.7356354, -74.006691), 9),
+                    ((40.742975, -73.98927599999999), 3),
+                    ((40.73139849999999, -74.0024617), 4),
+                    ((40.73686, -73.991384), 2),
+                    ((40.7290258, -73.98712069999999), 6),
+                    ((40.7327507, -74.0029358), 5)]
 
 
 class waypoint(namedtuple('waypoint', 'pat area')):
