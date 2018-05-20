@@ -6,7 +6,7 @@ AUTH_KEY = os.getenv('AUTH_KEY')
 
 
 def find_shops(origin, destination, new_destination=None):
-    json_data = find_direct(origin, destination)
+    json_data = find_path(origin, destination)
     if json_data == "No walking path found!":
         print(json_data)
         return
