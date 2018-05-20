@@ -31,39 +31,46 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; }
-  .travel .hide-travel {
-    display: none;
-    visibility: hidden; }
-  .travel .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 0.5; }
-    .travel .form-container .from-to-form {
-      display: flex;
-      z-index: 1;
-      position: absolute;
-      top: 1%;
-      font-size: 0.9em;
-      padding: 0.8em 2em;
-      background-color: white;
-      border-radius: 5px;
-      box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-      -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
-      .travel .form-container .from-to-form label {
-        margin-bottom: 0; }
-      .travel .form-container .from-to-form .direction-seperator {
-        margin: 0 1em;
-        font-size: 2em; }
-      .travel .form-container .from-to-form input {
-        font-size: 1em;
-        display: block;
-        border: none;
-        border-bottom: 1px solid #757575;
-        background-color: transparent; }
-        .travel .form-container .from-to-form input:focus {
-          outline: none; }
+
+.travel .hide-travel {
+  display: none;
+  visibility: hidden; }
+
+.travel .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.5; }
+
+.travel .form-container .from-to-form {
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  top: 1%;
+  font-size: 0.9em;
+  padding: 0.8em 2em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
+
+.travel .form-container .from-to-form label {
+  margin-bottom: 0; }
+
+.travel .form-container .from-to-form .direction-seperator {
+  margin: 0 1em;
+  font-size: 2em; }
+
+.travel .form-container .from-to-form input {
+  font-size: 1em;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: transparent; }
+
+.travel .form-container .from-to-form input:focus {
+  outline: none; }
 
 .welcome {
   height: 100%;
@@ -71,34 +78,41 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; }
-  .welcome h1 {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-weight: 300;
-    font-size: 5em; }
-    .welcome h1 small {
-      font-size: 50%;
-      font-weight: 300; }
-  .welcome .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 0.5; }
-    .welcome .form-container .from-to-form {
-      margin-bottom: 1em; }
-      .welcome .form-container .from-to-form .direction-seperator {
-        margin: 0 1em;
-        font-size: 2.5em; }
-      .welcome .form-container .from-to-form input {
-        font-size: 1em;
-        display: block;
-        border: none;
-        border-bottom: 1px solid #757575;
-        background-color: transparent;
-        margin-bottom: 1em; }
-        .welcome .form-container .from-to-form input:focus {
-          outline: none; }
+
+.welcome h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 300;
+  font-size: 5em; }
+
+.welcome h1 small {
+  font-size: 50%;
+  font-weight: 300; }
+
+.welcome .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.5; }
+
+.welcome .form-container .from-to-form {
+  margin-bottom: 1em; }
+
+.welcome .form-container .from-to-form .direction-seperator {
+  margin: 0 1em;
+  font-size: 2.5em; }
+
+.welcome .form-container .from-to-form input {
+  font-size: 1em;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: transparent;
+  margin-bottom: 1em; }
+
+.welcome .form-container .from-to-form input:focus {
+  outline: none; }
 
 .blured {
   -webkit-filter: blur(5px);
