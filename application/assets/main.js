@@ -46,11 +46,6 @@
 			document.getElementById("overlay").classList.remove("welcome");
 			document.getElementById("overlay").classList.add("travel");
 
-			// Transition effect
-			// $('#overlay').fadeOut("slow");
-			//$('#overlay').fadeOut();
-
-
 			const from_location = from_input.place.geometry.location;
 			const to_location = to_input.place.geometry.location;
 
