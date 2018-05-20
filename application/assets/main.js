@@ -107,10 +107,8 @@
         // Functions
         function expandViewportToFitPlace(map, place) {
             if (place.geometry.viewport) {
-                // console.log("success");
                 map.fitBounds(place.geometry.viewport);
             } else {
-                // console.log("failed");
                 map.setCenter(place.geometry.viewport);
                 map.setZoom(17);
             }
