@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+      width: 500px;
+      height: 400px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script>
+      function initialize() {
+        console.log("initialize()");
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+
+        data = [{"category":"anti-social-behaviour","location_type":"Force","location":{"latitude":"52.635598","street":{"id":883314,"name":"On or near\
+ Yeoman Lane"},"longitude":"-1.129330"},"context":"","outcome_status":null,"persistent_id":"","id":20597163,"location_subtype":"","month":"2013-01"},\
+{"category":"anti-social-behaviour","location_type":"Force","location":{"latitude":"52.624919","street":{"id":882317,"name":"On or near Coniston Aven\
+ue"},"longitude":"-1.141892"},"context":"","outcome_status":null,"persistent_id":"","id":20608551,"location_subtype":"","month":"2013-01"},{"category\
+":"anti-social-behaviour","location_type":"Force","location":{"latitude":"52.641139","street":{"id":884319,"name":"On or near Toronto Close"},"longit\
+ude":"-1.122481"},"context":"","outcome_status":null,"persistent_id":"","id":20597984,"location_subtype":"","month":"2013-01"},{"category":"anti-soci\
+al-behaviour","location_type":"Force","location":{"latitude":"52.637600","street":{"id":883324,"name":"On or near St Peters Lane"},"longitude":"-1.13\
+5171"},"context":"","outcome_status":null,"persistent_id":"","id":20597945,"location_subtype":"","month":"2013-01"},{"category":"anti-social-behaviou\
+r","location_type":"Force","location":{"latitude":"52.621287","street":{"id":882350,"name":"On or near Sports\/recreation Area"},"longitude":"-1.1368\
+81"},"context":"","outcome_status":null,"persistent_id":"","id":20597937,"location_subtype":"","month":"2013-01"}];
+
+        var points = [];
+        for(i=0; i<data.length; i++){
+          points.push(new google.maps.LatLng(data[i].location.latitude, data[i].location.longitude));
+          map.setCenter(points[i]);
+        }
+
+        console.log(points);
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: points,
+          map: map
+        });
+
+        heatmap.set('radius', 20);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>
