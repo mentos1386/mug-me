@@ -53,10 +53,14 @@
                 console.log(waypoints);
                 if (status === google.maps.DirectionsStatus.OK) {
                     directionsDisplay.setDirections(response);
-                    var steps = response.routes[0].legs[0].steps;
+                    const steps = response.routes[0].legs[0].steps;
+                    const duration = response.routes[0].legs[0].duration.text;
+                    const distance = response.routes[0].legs[0].distance.text;
 
                     $('#steps').empty();
+                    $('#duration').html(`${duration} / ${distance}`)
 
+                    // Create markers
                     const markers = steps.map(step => {
                         return new google.maps.Marker({
                             label: {
