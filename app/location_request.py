@@ -157,3 +157,28 @@ def new_path(origin, destination, centroid_str):
     if (stat == no_data):
         return ("No walking path found!")
     return json_data
+
+# Fetch crimes in the region
+def crime_place(lats, longs, rad):
+    LOCATION = str(lats) + ", " + str(longs)
+    RADIUS = rad
+    my_url = ('https://data.police.uk/api/crimes-street/all-crime?poly=%s&date=2017-01') % (LOCATION)
+
+    # fetching results (json)
+    resp = urllib.urlopen(my_url)
+    json_raw = resp.read()
+    json_data = json.loads(json_raw)
+    return json_data
+
+# Fetch events going on in the region
+def crime_place(lats, longs, rad):
+    LOCATION = str(lats) + ", " + str(longs)
+    RADIUS = rad
+    my_url = ('https://data.police.uk/api/crimes-street/all-crime?poly=%s&date=2017-01') % (LOCATION)
+
+    # fetching results (json)
+    resp = urllib.urlopen(my_url)
+    json_raw = resp.read()
+    json_data = json.loads(json_raw)
+    return json_data
+
