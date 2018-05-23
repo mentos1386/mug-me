@@ -26,6 +26,11 @@ def search1():
 
     print 'Paths: ' + str(path)
 
+    bounds = path['routes'][0]['bounds']
+    crimes = crime_place(bounds['northeast'], bounds['southwest'])
+
+    path['crimes'] = crimes;
+
     return jsonify(path)
 
 
